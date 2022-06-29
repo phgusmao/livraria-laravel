@@ -1,5 +1,5 @@
 <style>
-    body {
+        body {
     font-family: "Lato", sans-serif;
 }
 
@@ -12,12 +12,10 @@
 }
 
 .sidenav {
-    height: 20%;
+    height: 100%;
     background-color: #000;
     overflow-x: hidden;
-    overflow-y: hidden;
     padding-top: 20px;
-    color: #ffff;
 }
 
 
@@ -45,7 +43,7 @@
     }
 
     .sidenav{
-        width: 100%;
+        width: 40%;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -77,44 +75,52 @@
     color: #fff;
 }
 
-ul li {
-    display: inline-block;
-    padding-right: 20px;
-}
-
-ul li a:hover{
-    background-color: #ffff;
-    color: #000;
-}
-
-ul {
-    padding-left: 500px;
-}
-
-ul li a{
-    color: #ffff;
-
-}
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar novo funcionário</title>
+    <style>
+        label {
+            float:left;
+            display:block;
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+
 <div class="sidenav">
-         <div>
-            <h2>BookStore</h2>
-            <p>Bem-vindo a maior plataforma de locação de livro.</p>
-         </div>
-         <div>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="{{route('info_book')}}">Livros</a></li>
-                <li><a href="">Gêneros</a></li>
-                <li><a href="{{route('info_user')}}">Usuários</a></li>
-                <li><a href="{{route('login')}}">Sair</a></li>
-            </ul>
+         <div class="login-main-text">
+            <h2>BookStore<br> Página de login</h2>
+            <p>Faça login ou cadastre-se na nossa plataforma.</p>
          </div>
       </div>
       <div class="main">
+      <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+      <form action="{{route('create_user')}}" method="post">
+        @csrf
+
+        <div class="form-group"><label for="email">E-mail</label><input type="text" name="email" id="email"></div>
+        <div class="form-group"><label for="senha">Senha</label><input type="text" name="senha" id="senha"></div>
+        <div class="form-group"><label for="user_name">Nome</label><input type="text" name="user_name" id="user_name"></div>
+        <button class="btn btn-black" type="submit">Salvar</button>
+    </form>
       </div>
+      </div>
+      </div>
+</div>
+
+
+
+</body>
+</html>

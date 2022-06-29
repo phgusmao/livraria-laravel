@@ -12,12 +12,10 @@
 }
 
 .sidenav {
-    height: 20%;
+    height: 100%;
     background-color: #000;
     overflow-x: hidden;
-    overflow-y: hidden;
     padding-top: 20px;
-    color: #ffff;
 }
 
 
@@ -45,7 +43,7 @@
     }
 
     .sidenav{
-        width: 100%;
+        width: 40%;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -76,25 +74,6 @@
     background-color: #000 !important;
     color: #fff;
 }
-
-ul li {
-    display: inline-block;
-    padding-right: 20px;
-}
-
-ul li a:hover{
-    background-color: #ffff;
-    color: #000;
-}
-
-ul {
-    padding-left: 500px;
-}
-
-ul li a{
-    color: #ffff;
-
-}
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -102,19 +81,28 @@ ul li a{
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <div class="sidenav">
-         <div>
-            <h2>BookStore</h2>
-            <p>Bem-vindo a maior plataforma de locação de livro.</p>
-         </div>
-         <div>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="{{route('info_book')}}">Livros</a></li>
-                <li><a href="">Gêneros</a></li>
-                <li><a href="{{route('info_user')}}">Usuários</a></li>
-                <li><a href="{{route('login')}}">Sair</a></li>
-            </ul>
+         <div class="login-main-text">
+            <h2>BookStore<br> Página de cadastro</h2>
          </div>
       </div>
       <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form>
+                  <div class="form-group">
+                     <label>E-mail</label>
+                     <input type="text" class="form-control" placeholder="E-mail">
+                  </div>
+                  <div class="form-group">
+                     <label>Nome</label>
+                     <input type="text" class="form-control" placeholder="Nome">
+                  </div>
+                  <div class="form-group">
+                     <label>Senha</label>
+                     <input type="password" class="form-control" placeholder="Senha">
+                  </div>
+                  <button type="submit" class="btn btn-black">Salvar</button>
+               </form>
+            </div>
+         </div>
       </div>

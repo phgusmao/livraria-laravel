@@ -1,0 +1,129 @@
+<style>
+        body {
+    font-family: "Lato", sans-serif;
+}
+
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%;
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+</style>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de usuários</title>
+</head>
+<body>
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>BookStore<br> Página de login</h2>
+            <p>Faça login ou cadastre-se na nossa plataforma.</p>
+         </div>
+      </div>
+      <div class="main">
+         <table class="table">
+        <tr>
+            <th>E-mail</th>
+            <th>Senha</th>
+            <th>Nome</th>
+        </tr>
+        @foreach($users as $user)
+        <tr>
+            <td>
+                {{$user->email}}
+            </td>
+            <td>
+                {{$user->senha}}
+            </td>
+            <td>
+                {{$user->user_name}}
+            </td>
+            <td><a class="btn btn-black" href="{{route('edit_user', ['id'=>$user->id])}}" title="Editar usuario {{$user->user_name}}">Editar</td>
+            <td><a class="btn btn-black" href="{{route('delete_user', ['id'=>$user->id])}}" title="Excluir usuario {{$user->user_name}}">Excluir</a></td>
+        </tr>
+        @endforeach
+    </table>
+    <a class="btn btn-black" href="{{route('create_user')}}" >Criar usuário  </a>
+    <a class="btn btn-black" href="{{route('menu')}}" >  Retornar ao menu</a>
+      </div>
+</div>
+
+</body>
+</html>
